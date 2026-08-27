@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 class LoginController extends Controller
 {
     public function login()
@@ -22,6 +23,8 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('user');
         }
+
+        Alert::warning('Warning Title', 'Warning Message');
 
         return back()->withErrors(['email' => 'Email dan password yang anda masukkan salah!'])->onlyInput('email');
     }
