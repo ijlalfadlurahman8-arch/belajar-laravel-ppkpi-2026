@@ -5,14 +5,14 @@
             {{ $title ?? '' }}
         </div>
         <div class="card-body">
-            <form action="{{route('user.update', $editUser->id)}}" method="post">
+            <form action="{{route('user.update', $edit->id)}}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
                     <label for="name" class="form-label fw-semibold">Nama</label>
                     <input type="text" name="name" id="name" class="form-control @error('name')
                         is-invalid
-                    @enderror" name="name" value="{{ $editUser->name }}">
+                    @enderror" name="name" value="{{ $edit->name }}">
                     @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -23,7 +23,7 @@
                     <label for="email" class="form-label fw-semibold">Email</label>
                     <input type="email" name="email" id="email" class="form-control @error('email')
                         is-invalid
-                    @enderror" required value="{{ $editUser->email }}">
+                    @enderror" required value="{{ $edit->email }}">
                     @error('email')
                         <div class="invalid-feedback">
                             {{ $message }}

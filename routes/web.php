@@ -4,6 +4,7 @@
 use App\Http\Controllers\LatihanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
@@ -40,4 +41,5 @@ Route::middleware('auth')->group(function(){
 });
 // Resource : get, post, put, delete
     Route::resource('user', UserController::class);
+    Route::resource('product', ProductController::class);
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
